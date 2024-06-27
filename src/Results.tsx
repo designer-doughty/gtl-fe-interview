@@ -77,17 +77,52 @@ const data: Result[] = [
 ];
 
 export default function Results() {
+
   return (
     <div className="results">
       {data.map((item) => {
         return (
           <>
-            <p>PatientID: {item.patientId}</p>
-            <p>Scanned At: {item.scannedAt.valueOf()}</p>
-            <p>Score: {item.score}</p>
-            <p>Event: {item.event}</p>
-            <p>Sample Quality: {item.sampleQuality}</p>
-            <p>Date of Birth: {item.dateOfBirth}</p>
+          <div className="entry">
+
+            <h4 className="event">{item.event}</h4>
+
+            <h2 className="headline score">
+              {item.score}
+            </h2>
+
+            <span className="date">
+              <h4 className="label">Scanned At:</h4>
+              {/* Current locale set to GB - dd/mm/yyyy */}
+              <p>{item.scannedAt.toLocaleDateString("en-GB")}</p>
+            </span>
+
+            <span className="quality">
+              <h4 className="label">Sample Quality:</h4>
+              <p style={{
+                color:
+                  item.sampleQuality === "high"
+                    ? "green"
+                    : item.sampleQuality === "medium"
+                    ? "orange"
+                    : item.sampleQuality == "low"
+                    ? "red"
+                    : "",
+              }}
+              >{item.sampleQuality}</p>
+            </span>
+
+            
+
+            <span className="id">
+              <h4 className="label">Patient ID:</h4>
+              <p onClick={() => navigator.clipboard.writeText(item.patientId)} id="patientID">{item.patientId}</p>
+
+            </span>
+
+          </div>
+              {/* Commented out as could be considered Protected Health Information but could be used later on? */}
+            {/* <p>Date of Birth: {item.dateOfBirth}</p> */}
           </>
         );
       })}

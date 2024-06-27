@@ -1,0 +1,147 @@
+/* 1.0 Variables*/
+:root {
+    --green: #9BC048;
+    --yellow: #E6B32D;
+    --red: #C93236;
+
+    --small: 12px;
+    --medium: 24px;
+    --large: 60px;
+    --headline: 70px;
+}
+
+/* 2.0 Type Styles */
+@font-face {
+    font-family: "interWeb";
+    src: url("Inter.ttf");
+}
+
+@font-face {
+    font-family: "dalaWeb";
+    src: url("Dala.otf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: 'interWeb';
+}
+
+.event,
+.headline {
+    margin: 0;
+}
+
+.entry .event {
+    background: black;
+    width: fit-content;
+    margin: auto;
+    color: white;
+    padding: 6px;
+    margin-bottom: 10px;
+}
+
+.headline {
+    font-size: var(--headline);
+}
+
+
+.label,
+p,
+.event {
+    font-size: var(--small);
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    margin: 0;
+}
+
+.label {
+    padding-left: 30px;
+    opacity: 0.7;
+}
+
+.entry .date,
+.entry .quality,
+.entry .id,
+.entry .id p {
+    position: relative;
+}
+
+.entry .id p {
+    cursor: pointer;
+}
+
+.entry .date::before,
+.entry .quality::before,
+.entry .id::before,
+.entry .id p::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -3px;
+    opacity: 0.7;
+}
+
+.entry .id p::before {
+    left: -22px;
+    opacity: 1;
+}
+
+.entry .date::before {
+    background-image: url('date.svg');
+}
+
+.entry .quality::before {
+    background-image: url('sample.svg');
+}
+
+.entry .id::before {
+    background-image: url('id.svg');
+}
+
+.entry .id p::before {
+    background-image: url('copy.svg');
+}
+
+/* 3.0 Layout Styles */
+
+.results {
+    max-width: 800px;
+    margin: auto;
+}
+
+span {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.entry {
+    max-width: 320px;
+    margin: auto;
+    padding: 40px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    box-shadow: #00000070 0px 0px 50px 0px;
+}
+
+.entry .event,
+.entry .score {
+    text-align: center;
+}
+
+.entry .score {
+    margin-bottom: 30px;
+}
+
+.entry .date,
+.entry .quality {
+    margin-bottom: 15px;
+}
