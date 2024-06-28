@@ -115,6 +115,10 @@ p,
 .results {
     max-width: 800px;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 40px;
 }
 
 span {
@@ -125,11 +129,14 @@ span {
 
 .entry {
     max-width: 320px;
-    margin: auto;
     padding: 40px;
     margin-bottom: 50px;
     margin-top: 50px;
     box-shadow: #00000070 0px 0px 50px 0px;
+    min-width: 320px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
 }
 
 .entry .event,
