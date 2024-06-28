@@ -121,7 +121,10 @@ p,
     padding: 0 40px;
 }
 
-span {
+span,
+.date,
+.quality,
+.id {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -151,4 +154,5 @@ span {
 .entry .date,
 .entry .quality {
     margin-bottom: 15px;
+    /* display: inline; */
 }

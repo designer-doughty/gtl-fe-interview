@@ -80,10 +80,9 @@ export default function Results() {
 
   return (
     <div className="results">
-      {data.map((item) => {
+      {data.map((item, index) => {
         return (
-          <>
-          <div className="entry">
+          <div className="entry" key={index}>
 
             <h4 className="event">{item.event}</h4>
 
@@ -91,39 +90,36 @@ export default function Results() {
               {item.score}
             </h2>
 
-            <span className="date">
+            <div className="date">
               <h4 className="label">Scanned At:</h4>
-              {/* Current locale set to GB - dd/mm/yyyy */}
-              <p>{item.scannedAt.toLocaleDateString("en-GB")}</p>
-            </span>
+              <p>{item.scannedAt.toLocaleDateString()}</p>
+            </div>
 
-            <span className="quality">
+            <div className="quality">
               <h4 className="label">Sample Quality:</h4>
               <p style={{
                 color:
                   item.sampleQuality === "high"
-                    ? "green"
+                    ? "var(--green)"
                     : item.sampleQuality === "medium"
-                    ? "orange"
+                    ? "var(--yellow)"
                     : item.sampleQuality == "low"
-                    ? "red"
+                    ? "var(--red)"
                     : "",
               }}
               >{item.sampleQuality}</p>
-            </span>
+            </div>
 
             
 
-            <span className="id">
+            <div className="id">
               <h4 className="label">Patient ID:</h4>
               <p onClick={() => navigator.clipboard.writeText(item.patientId)} id="patientID">{item.patientId}</p>
-
-            </span>
-
-          </div>
+            </div>
               {/* Commented out as could be considered Protected Health Information but could be used later on? */}
-            {/* <p>Date of Birth: {item.dateOfBirth}</p> */}
-          </>
+              {/* <p>Date of Birth: {item.dateOfBirth}</p> */}
+          </div>
+
         );
       })}
     </div>
